@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<link rel="icon" type="image/png" href="/img/favicon.png" />
+	<link rel="stylesheet" href="/style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto&display=swap" rel="stylesheet">
+	<title>Webserv</title>
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			let files = document.getElementsByClassName("delete-file");
+			for (let i = 0; i < files.length; i++) {
+				let file = files.item(i);
+				file.addEventListener("click", () => {
+					fetch("http://127.0.0.1:PORT/upload/" + file.value, {method: 'DELETE'});
+					file.parentNode.remove();
+				});
+			}
+		});
+
+	</script>
+</head>
+<body>
+	<div class="content">
+		<h1 class="titleh1">UPLOAD</h1>
+		<nav class="nav-content">
+			<ul>
+				<li><a href="/index.html">Home</a></li>
+				<li><a href="/cookie_add.html">Cookie Add</a></li>
+				<li><a href="/cookie_delete.html">Cookie Delete</a></li>
+				<li><a href="/redirect.html">Redirect</a></li>
+				<li><a href="/cgi.html">Cgi</a></li>
+			</ul>
+		</nav>
+		<div class="download-file">
+			LOAD_FILE
+		</div>
+	</div>
+</body>
+</html>
